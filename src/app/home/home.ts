@@ -13,7 +13,8 @@ export class Home {
   messageLazyLoading = '';
 
   constructor() {
-    setTimeout(() => this.name = 'Angular', 1000);
+    this.name = 'Angular';
+    // setTimeout(() => this.name = 'Angular', 1000);
   }
 
   onCheckPreboot() {
@@ -23,7 +24,7 @@ export class Home {
 
   onCheckLazyLoading() {
     require.ensure([], () => {
-      const greeter = require('./greeter.ts');
+      const greeter = require('../greeter.ts');
       this.messageLazyLoading = greeter.greet();
     });
   }
